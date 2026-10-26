@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartShop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body class="min-h-screen bg-slate-50 pt-16">
+  <!-- Navbar -->
+  <header class="fixed inset-x-0 top-0 z-50 bg-white border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
+      <a href="#home" class="flex items-center gap-2.5">
+        <img src="assets/images/logo.png" alt="SmartShop logo" class="h-8 w-8" />
+        <span class="text-lg font-semibold tracking-tight text-slate-900">SmartShop</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-500">
+        <li><a href="#home" class="transition hover:text-slate-900">Home</a></li>
+        <li><a href="#products" class="transition hover:text-slate-900">Products</a></li>
+        <li><a href="#reviews" class="transition hover:text-slate-900">Reviews</a></li>
+        <li><a href="#contact" class="transition hover:text-slate-900">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-1">
+        <span id="balance" class="mr-2 text-sm font-medium tabular-nums text-slate-900">৳1000</span>
+        <button id="cart-btn" type="button" aria-label="Open cart" class="relative rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          </svg>
+          <span id="cart-count" class="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-slate-900 px-1 text-[10px] font-semibold leading-none text-white">0</span>
+        </button>
+        <!-- Hamburger button -->
+        <button id="menu-btn" type="button" aria-label="Open menu" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 md:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+        <!-- End Hamburger button -->
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
+      <ul class="space-y-0.5 px-4 py-3 text-sm font-medium text-slate-500">
+        <li><a href="#home" class="block rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-900">Home</a></li>
+        <li><a href="#products" class="block rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-900">Products</a></li>
+        <li><a href="#reviews" class="block rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-900">Reviews</a></li>
+        <li><a href="#contact" class="block rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-900">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  <!-- End Navbar -->
+  <main class="flex items-center justify-center h-[150vh]">
+    <h1 class="text-4xl font-semibold tracking-tight text-slate-900">SmartShop</h1>
+  </main>
+</body>
+</html>

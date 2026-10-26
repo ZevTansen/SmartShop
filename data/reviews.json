@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Tanvir Ahmed",
+    "comment": "Ordered a pair of headphones, delivery arrived a day early. Packaging was neat and the product works perfectly.",
+    "rating": 5,
+    "date": "2026-10-21"
+  },
+  {
+    "id": 2,
+    "name": "Nusrat Jahan",
+    "comment": "Good prices compared to local shops and the checkout was really smooth. Would love more payment options though.",
+    "rating": 4,
+    "date": "2026-10-14"
+  },
+  {
+    "id": 3,
+    "name": "Sakib Hasan",
+    "comment": "The watch I received looked slightly different from the picture, but the quality is solid for the price. Support responded fast when I asked.",
+    "rating": 3,
+    "date": "2026-10-09"
+  },
+  {
+    "id": 4,
+    "name": "Mehjabin Rahman",
+    "comment": "Third order from here and never disappointed. The delivery tracking updates are accurate and the items always arrive well wrapped.",
+    "rating": 5,
+    "date": "2026-10-03"
+  },
+  {
+    "id": 5,
+    "name": "Arif Chowdhury",
+    "comment": "Bought a backpack as a gift. Stitching and zippers feel premium. Only wish the inside had more pockets.",
+    "rating": 4,
+    "date": "2026-09-26"
+  },
+  {
+    "id": 6,
+    "name": "Farhana Akter",
+    "comment": "The smart lamp is beautiful and easy to set up. Free delivery on my order was a nice bonus.",
+    "rating": 5,
+    "date": "2026-09-18"
+  },
+  {
+    "id": 7,
+    "name": "Rafiul Islam",
+    "comment": "Decent experience overall. Product is fine but delivery to my area took longer than expected.",
+    "rating": 4,
+    "date": "2026-09-07"
+  }
+]
