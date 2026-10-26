@@ -49,6 +49,46 @@
     </div>
   </header>
   <!-- End Navbar -->
+  <!-- Banner -->
+  <section id="home">
+    <div id="banner" class="relative h-60 sm:h-80 lg:h-[480px] overflow-hidden">
+      <!-- Slides -->
+      <div class="banner-slide absolute inset-0">
+        <img src="assets/images/banner1.png" alt="Mega Sale" class="h-full w-full object-cover" />
+      </div>
+      <div class="banner-slide absolute inset-0 hidden">
+        <img src="assets/images/banner2.png" alt="New Arrivals" class="h-full w-full object-cover" />
+      </div>
+      <div class="banner-slide absolute inset-0 hidden">
+        <img src="assets/images/banner3.png" alt="Free Delivery" class="h-full w-full object-cover" />
+      </div>
+      <div class="banner-slide absolute inset-0 hidden">
+        <img src="assets/images/banner4.png" alt="Tech Fest" class="h-full w-full object-cover" />
+      </div>
+      <!-- End Slides -->
+      <!-- Arrows -->
+      <button id="banner-prev" type="button" aria-label="Previous slide" class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-slate-700 border border-slate-200 transition hover:bg-white">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <button id="banner-next" type="button" aria-label="Next slide" class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-slate-700 border border-slate-200 transition hover:bg-white">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+      <!-- End Arrows -->
+      <!-- Dots -->
+      <div id="banner-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <button type="button" aria-label="Go to slide 1" class="h-2 w-2 rounded-full bg-white transition"></button>
+        <button type="button" aria-label="Go to slide 2" class="h-2 w-2 rounded-full bg-white/50 transition"></button>
+        <button type="button" aria-label="Go to slide 3" class="h-2 w-2 rounded-full bg-white/50 transition"></button>
+        <button type="button" aria-label="Go to slide 4" class="h-2 w-2 rounded-full bg-white/50 transition"></button>
+      </div>
+      <!-- End Dots -->
+    </div>
+  </section>
+  <!-- End Banner -->
   <main class="flex items-center justify-center h-[150vh]">
     <h1 class="text-4xl font-semibold tracking-tight text-slate-900">SmartShop</h1>
   </main>
