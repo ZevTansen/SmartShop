@@ -86,9 +86,9 @@ function buildStars(rate) {
   wrap.setAttribute('role', 'img');
   wrap.setAttribute('aria-label', `Rated ${rate} out of 5`);
   wrap.appendChild(row('outline', 'text-slate-300'));
+  const percent = Math.min(100, Math.max(0, Math.round(rate / 5 * 10) * 10));
   const overlay = document.createElement('div');
-  overlay.className = 'absolute inset-y-0 left-0 overflow-hidden';
-  overlay.style.width = `${(rate / 5) * 100}%`;
+  overlay.className = `absolute inset-y-0 left-0 overflow-hidden w-[${percent}%]`;
   overlay.appendChild(row('filled', 'text-amber-400'));
   wrap.appendChild(overlay);
   return wrap;

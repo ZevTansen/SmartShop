@@ -34,6 +34,9 @@ function closeCart() {
 cartBtn.addEventListener('click', openCart);
 cartClose.addEventListener('click', closeCart);
 cartBackdrop.addEventListener('click', closeCart);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCart();
+});
 // End Drawer open/close
 
 // Toast
@@ -266,6 +269,7 @@ productsGrid.addEventListener('click', (e) => {
 // Checkout
 function checkout() {
   if (!cart.length) {
+    hideCartWarning();
     showToast('Your cart is empty.');
     return;
   }

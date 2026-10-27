@@ -8,13 +8,27 @@ const balanceAmount = document.getElementById('balance-amount');
 const balanceMessage = document.getElementById('balance-message');
 const addMoneyBtn = document.getElementById('add-money-btn');
 
+function readBalanceStorage() {
+  try {
+    return localStorage.getItem(balanceKey);
+  } catch {
+    return null;
+  }
+}
+
+function writeBalanceStorage(value) {
+  try {
+    localStorage.setItem(balanceKey, value);
+  } catch {}
+}
+
 function getBalance() {
-  const stored = Number(localStorage.getItem(balanceKey));
+  const stored = Number(readBalanceStorage());
   return Number.isFinite(stored) && stored >= 0 ? stored : START_BALANCE;
 }
 
 function setBalance(amount) {
-  localStorage.setItem(balanceKey, String(amount));
+  writeBalanceStorage(String(amount));
   renderBalance();
 }
 
@@ -62,6 +76,6 @@ document.addEventListener('keydown', (e) => {
 addMoneyBtn.addEventListener('click', () => addMoney(1000));
 // End Drawer open/close
 
-if (localStorage.getItem(balanceKey) === null) setBalance(START_BALANCE);
+if (readBalanceStorage() === null) setBalance(START_BALANCE);
 else renderBalance();
 // End Balance storage and drawer

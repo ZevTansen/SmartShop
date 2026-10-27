@@ -1,9 +1,31 @@
 // Mobile menu toggle
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
+const menuLines = [...menuBtn.querySelectorAll('span')];
+
+function setMenu(open) {
+  mobileMenu.classList.toggle('hidden', !open);
+  document.body.classList.toggle('overflow-hidden', open);
+  backToTop.classList.toggle('hidden', open || window.scrollY < 300);
+  menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  menuLines[0].classList.toggle('translate-y-2', open);
+  menuLines[0].classList.toggle('rotate-45', open);
+  menuLines[1].classList.toggle('opacity-0', open);
+  menuLines[2].classList.toggle('-translate-y-2', open);
+  menuLines[2].classList.toggle('-rotate-45', open);
+}
 
 menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
+  setMenu(mobileMenu.classList.contains('hidden'));
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => setMenu(false));
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') setMenu(false);
 });
 // End Mobile menu toggle
 

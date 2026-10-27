@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +17,7 @@
 <body class="min-h-screen bg-slate-50 pt-16">
   <!-- Navbar -->
   <header class="fixed inset-x-0 top-0 z-50 bg-white border-b border-slate-200">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
+    <nav class="relative z-50 max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
       <a href="#home" class="flex items-center gap-2.5">
         <img src="assets/images/logo.png" alt="SmartShop logo" class="h-8 w-8" />
         <h1 class="text-lg font-semibold tracking-tight text-slate-900">SmartShop</h1>
@@ -43,26 +43,26 @@
           <span id="cart-count" class="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-slate-900 px-1 text-[10px] font-semibold leading-none text-white">0</span>
         </button>
         <!-- Hamburger button -->
-        <button id="menu-btn" type="button" aria-label="Open menu" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 md:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
+        <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 md:hidden">
+          <span class="block h-0.5 w-5 rounded bg-current transition-all duration-300"></span>
+          <span class="mt-1.5 block h-0.5 w-5 rounded bg-current transition-all duration-300"></span>
+          <span class="mt-1.5 block h-0.5 w-5 rounded bg-current transition-all duration-300"></span>
         </button>
         <!-- End Hamburger button -->
       </div>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
-      <ul class="space-y-0.5 px-4 py-3 text-sm font-medium text-slate-500">
-        <li><a href="#home" class="block rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-900">Home</a></li>
-        <li><a href="#products" class="block rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-900">Products</a></li>
-        <li><a href="#reviews" class="block rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-900">Reviews</a></li>
-        <li><a href="#contact" class="block rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-900">Contact</a></li>
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-white md:hidden">
+      <ul class="flex h-full flex-col items-center justify-center space-y-2 text-center">
+        <li><a href="#home" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:text-slate-500">Home</a></li>
+        <li><a href="#products" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:text-slate-500">Products</a></li>
+        <li><a href="#reviews" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:text-slate-500">Reviews</a></li>
+        <li><a href="#contact" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:text-slate-500">Contact</a></li>
       </ul>
     </div>
   </header>
   <!-- End Navbar -->
   <!-- Banner -->
-  <section id="home">
+  <section id="home" class="scroll-mt-20">
     <div id="banner" class="relative h-60 sm:h-80 lg:h-[480px] overflow-hidden">
       <!-- Slides -->
       <div class="banner-slide absolute inset-0">
@@ -103,7 +103,7 @@
   <!-- End Banner -->
   <main>
     <!-- Products -->
-    <section id="products" class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <section id="products" class="scroll-mt-20 max-w-6xl mx-auto px-4 sm:px-6 py-16">
       <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Products</h2>
       <p class="mt-1 text-sm text-slate-500">Browse our latest picks.</p>
       <!-- Toolbar -->
@@ -124,7 +124,7 @@
     </section>
     <!-- End Products -->
     <!-- Reviews -->
-    <section id="reviews" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+    <section id="reviews" class="scroll-mt-20 max-w-6xl mx-auto px-4 sm:px-6 pb-16">
       <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Reviews</h2>
       <p class="mt-1 text-sm text-slate-500">What our customers say.</p>
       <div class="mt-6 relative">
@@ -231,7 +231,7 @@
     </section>
     <!-- End FAQ -->
     <!-- Contact -->
-    <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+    <section id="contact" class="scroll-mt-20 max-w-6xl mx-auto px-4 sm:px-6 pb-20">
       <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Contact</h2>
       <p class="mt-1 text-sm text-slate-500">We usually reply within a day.</p>
       <form id="contact-form" class="mt-6 max-w-md space-y-4" novalidate>

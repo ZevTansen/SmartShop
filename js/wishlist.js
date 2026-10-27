@@ -17,7 +17,9 @@ try {
 }
 
 function saveWishlist() {
-  localStorage.setItem(wishlistKey, JSON.stringify(wishlist));
+  try {
+    localStorage.setItem(wishlistKey, JSON.stringify(wishlist));
+  } catch {}
 }
 
 function inWishlist(id) {
@@ -114,6 +116,7 @@ function wishlistLine(id) {
   move.className = 'shrink-0 rounded-lg border border-slate-300 px-2.5 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-900 hover:text-slate-900';
   move.textContent = 'Move to Cart';
   move.addEventListener('click', () => {
+    closeWishlist();
     if (addToCart(id)) removeFromWishlist(id);
   });
 

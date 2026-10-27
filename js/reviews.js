@@ -98,7 +98,7 @@ async function loadReviews() {
     if (!reviews.length) throw new Error('empty');
     reviewsTrack.replaceChildren(...reviews.map(reviewCard));
     buildDots();
-    show(0);
+    showReview(0);
     startAutoplay();
   } catch {
     showReviewsError();
