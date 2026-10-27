@@ -89,8 +89,194 @@
     </div>
   </section>
   <!-- End Banner -->
-  <main class="flex items-center justify-center h-[150vh]">
-    <h1 class="text-4xl font-semibold tracking-tight text-slate-900">SmartShop</h1>
+  <main>
+    <!-- Products -->
+    <section id="products" class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Products</h2>
+      <p class="mt-1 text-sm text-slate-500">Browse our latest picks.</p>
+      <!-- Toolbar -->
+      <div class="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
+        <input id="search-input" type="search" placeholder="Search products…" class="w-full sm:max-w-xs rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-900 focus:outline-none" />
+        <select id="sort-select" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-slate-900 focus:outline-none">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Rating</option>
+        </select>
+        <span id="result-count" class="text-sm text-slate-500"></span>
+      </div>
+      <!-- End Toolbar -->
+      <!-- Grid -->
+      <div id="products-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 min-h-32 rounded-xl border border-dashed border-slate-200"></div>
+      <!-- End Grid -->
+    </section>
+    <!-- End Products -->
+    <!-- Cart panel -->
+    <section id="cart" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <div class="rounded-xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-semibold tracking-tight text-slate-900">Your Cart</h2>
+        <!-- Items -->
+        <ul id="cart-items" class="mt-4 divide-y divide-slate-100"></ul>
+        <!-- End Items -->
+        <!-- Money rows -->
+        <dl class="mt-4 space-y-2 text-sm text-slate-600">
+          <div class="flex justify-between">
+            <dt>Subtotal</dt>
+            <dd id="subtotal" class="tabular-nums text-slate-900">৳0</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt>Delivery</dt>
+            <dd id="delivery" class="tabular-nums text-slate-900">৳0</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt>Shipping</dt>
+            <dd id="shipping" class="tabular-nums text-slate-900">৳0</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt>Discount</dt>
+            <dd id="discount" class="tabular-nums text-slate-900">−৳0</dd>
+          </div>
+          <div class="flex justify-between border-t border-slate-200 pt-3 mt-3 text-base font-semibold text-slate-900">
+            <dt>Total</dt>
+            <dd id="total" class="tabular-nums">৳0</dd>
+          </div>
+        </dl>
+        <!-- End Money rows -->
+        <!-- Coupon -->
+        <div class="mt-4 flex gap-2">
+          <input id="coupon-input" type="text" placeholder="Coupon code" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm uppercase tracking-wide placeholder:text-slate-400 placeholder:normal-case focus:border-slate-900 focus:outline-none" />
+          <button id="coupon-apply" type="button" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-900 hover:text-slate-900">Apply</button>
+        </div>
+        <!-- End Coupon -->
+        <button id="checkout-btn" type="button" class="mt-4 w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800">Checkout</button>
+      </div>
+    </section>
+    <!-- End Cart panel -->
+    <!-- Reviews -->
+    <section id="reviews" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Reviews</h2>
+      <p class="mt-1 text-sm text-slate-500">What our customers say.</p>
+      <div class="mt-6 relative">
+        <!-- Carousel -->
+        <div id="reviews-viewport" class="overflow-hidden rounded-xl border border-dashed border-slate-200">
+          <div id="reviews-track" class="min-h-40"></div>
+        </div>
+        <!-- End Carousel -->
+        <button id="reviews-prev" type="button" aria-label="Previous review" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-slate-700 border border-slate-200 transition hover:bg-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+        <button id="reviews-next" type="button" aria-label="Next review" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-slate-700 border border-slate-200 transition hover:bg-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <!-- End Reviews -->
+    <!-- About -->
+    <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">About Us</h2>
+      <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-600">SmartShop is a fully client-side storefront demo — browse products, manage a cart, apply coupons and spend from a fixed balance, all in real time with zero page reloads.</p>
+      <!-- Team grid -->
+      <div id="team-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 min-h-24 rounded-xl border border-dashed border-slate-200"></div>
+      <!-- End Team grid -->
+    </section>
+    <!-- End About -->
+    <!-- FAQ -->
+    <section id="faq" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">FAQ</h2>
+      <div class="mt-6 max-w-3xl divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white px-6">
+        <!-- FAQ item -->
+        <div>
+          <button type="button" class="flex w-full items-center justify-between py-4 text-left text-sm font-medium text-slate-900">
+            How long does delivery take?
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div class="hidden pb-4 text-sm leading-6 text-slate-500">Inside the city usually within 1–2 days; outside the city 2–4 days.</div>
+        </div>
+        <!-- End FAQ item -->
+        <!-- FAQ item -->
+        <div>
+          <button type="button" class="flex w-full items-center justify-between py-4 text-left text-sm font-medium text-slate-900">
+            What are the delivery charges?
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div class="hidden pb-4 text-sm leading-6 text-slate-500">Inside the city ৳60 flat, outside ৳120 flat. Delivery is free on subtotals of ৳2000 or more.</div>
+        </div>
+        <!-- End FAQ item -->
+        <!-- FAQ item -->
+        <div>
+          <button type="button" class="flex w-full items-center justify-between py-4 text-left text-sm font-medium text-slate-900">
+            Do you offer discount coupons?
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div class="hidden pb-4 text-sm leading-6 text-slate-500">Yes — apply an active code in the cart to get an instant discount on your subtotal.</div>
+        </div>
+        <!-- End FAQ item -->
+      </div>
+    </section>
+    <!-- End FAQ -->
+    <!-- Contact -->
+    <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Contact</h2>
+      <p class="mt-1 text-sm text-slate-500">We usually reply within a day.</p>
+      <form id="contact-form" class="mt-6 max-w-md space-y-4" novalidate>
+        <div>
+          <label for="contact-name" class="block text-sm font-medium text-slate-700">Name</label>
+          <input id="contact-name" type="text" class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none" />
+        </div>
+        <div>
+          <label for="contact-email" class="block text-sm font-medium text-slate-700">Email</label>
+          <input id="contact-email" type="email" class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none" />
+        </div>
+        <div>
+          <label for="contact-message" class="block text-sm font-medium text-slate-700">Message</label>
+          <textarea id="contact-message" rows="4" class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"></textarea>
+        </div>
+        <button type="submit" class="rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800">Send message</button>
+      </form>
+      <p id="contact-success" class="hidden mt-6 max-w-md text-sm font-medium text-emerald-600">Thank you! Your message has been sent.</p>
+    </section>
+    <!-- End Contact -->
   </main>
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-sm font-semibold text-slate-900">SmartShop</h3>
+          <p class="mt-2 text-sm text-slate-500">hello@smartshop.example</p>
+          <p class="text-sm text-slate-500">+880 1700-000000</p>
+          <p class="text-sm text-slate-500">Chattogram, Bangladesh</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-slate-900">Quick links</h3>
+          <ul class="mt-2 space-y-1 text-sm text-slate-500">
+            <li><a href="#home" class="transition hover:text-slate-900">Home</a></li>
+            <li><a href="#products" class="transition hover:text-slate-900">Products</a></li>
+            <li><a href="#reviews" class="transition hover:text-slate-900">Reviews</a></li>
+            <li><a href="#contact" class="transition hover:text-slate-900">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-8 border-t border-slate-100 pt-6 text-sm text-slate-400">© 2026 SmartShop. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- End Footer -->
+  <!-- Back to top -->
+  <button id="back-to-top" type="button" aria-label="Back to top" class="hidden fixed bottom-6 right-6 z-50 rounded-full bg-white p-2.5 text-slate-700 border border-slate-200 shadow-sm transition hover:text-slate-900">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+    </svg>
+  </button>
+  <!-- End Back to top -->
 </body>
 </html>
