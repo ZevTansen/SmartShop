@@ -111,47 +111,6 @@
       <!-- End Grid -->
     </section>
     <!-- End Products -->
-    <!-- Cart panel -->
-    <section id="cart" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-      <div class="rounded-xl border border-slate-200 bg-white p-6">
-        <h2 class="text-lg font-semibold tracking-tight text-slate-900">Your Cart</h2>
-        <!-- Items -->
-        <ul id="cart-items" class="mt-4 divide-y divide-slate-100"></ul>
-        <!-- End Items -->
-        <!-- Money rows -->
-        <dl class="mt-4 space-y-2 text-sm text-slate-600">
-          <div class="flex justify-between">
-            <dt>Subtotal</dt>
-            <dd id="subtotal" class="tabular-nums text-slate-900">৳0</dd>
-          </div>
-          <div class="flex justify-between">
-            <dt>Delivery</dt>
-            <dd id="delivery" class="tabular-nums text-slate-900">৳0</dd>
-          </div>
-          <div class="flex justify-between">
-            <dt>Shipping</dt>
-            <dd id="shipping" class="tabular-nums text-slate-900">৳0</dd>
-          </div>
-          <div class="flex justify-between">
-            <dt>Discount</dt>
-            <dd id="discount" class="tabular-nums text-slate-900">−৳0</dd>
-          </div>
-          <div class="flex justify-between border-t border-slate-200 pt-3 mt-3 text-base font-semibold text-slate-900">
-            <dt>Total</dt>
-            <dd id="total" class="tabular-nums">৳0</dd>
-          </div>
-        </dl>
-        <!-- End Money rows -->
-        <!-- Coupon -->
-        <div class="mt-4 flex gap-2">
-          <input id="coupon-input" type="text" placeholder="Coupon code" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm uppercase tracking-wide placeholder:text-slate-400 placeholder:normal-case focus:border-slate-900 focus:outline-none" />
-          <button id="coupon-apply" type="button" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-900 hover:text-slate-900">Apply</button>
-        </div>
-        <!-- End Coupon -->
-        <button id="checkout-btn" type="button" class="mt-4 w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800">Checkout</button>
-      </div>
-    </section>
-    <!-- End Cart panel -->
     <!-- Reviews -->
     <section id="reviews" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
       <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Reviews</h2>
@@ -271,6 +230,58 @@
     </div>
   </footer>
   <!-- End Footer -->
+  <!-- Cart drawer -->
+  <div id="cart-backdrop" class="fixed inset-0 z-[55] bg-slate-900/40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="cart-drawer" aria-label="Shopping cart" class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm translate-x-full flex-col bg-white border-l border-slate-200 shadow-xl transition-transform duration-300">
+    <div class="flex h-16 items-center justify-between border-b border-slate-200 px-5">
+      <h2 class="text-base font-semibold tracking-tight text-slate-900">Your Cart</h2>
+      <button id="cart-close" type="button" aria-label="Close cart" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-5 py-4">
+      <!-- Items -->
+      <ul id="cart-items" class="divide-y divide-slate-100"></ul>
+      <!-- End Items -->
+      <!-- Money rows -->
+      <dl class="mt-4 space-y-2 text-sm text-slate-600">
+        <div class="flex justify-between">
+          <dt>Subtotal</dt>
+          <dd id="subtotal" class="tabular-nums text-slate-900">৳0</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt>Delivery</dt>
+          <dd id="delivery" class="tabular-nums text-slate-900">৳0</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt>Shipping</dt>
+          <dd id="shipping" class="tabular-nums text-slate-900">৳0</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt>Discount</dt>
+          <dd id="discount" class="tabular-nums text-slate-900">−৳0</dd>
+        </div>
+        <div class="flex justify-between border-t border-slate-200 pt-3 mt-3 text-base font-semibold text-slate-900">
+          <dt>Total</dt>
+          <dd id="total" class="tabular-nums">৳0</dd>
+        </div>
+      </dl>
+      <!-- End Money rows -->
+      <!-- Coupon -->
+      <div class="mt-4 flex gap-2">
+        <input id="coupon-input" type="text" placeholder="Coupon code" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm uppercase tracking-wide placeholder:text-slate-400 placeholder:normal-case focus:border-slate-900 focus:outline-none" />
+        <button id="coupon-apply" type="button" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-900 hover:text-slate-900">Apply</button>
+      </div>
+      <!-- End Coupon -->
+      <button id="checkout-btn" type="button" class="mt-4 w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800">Checkout</button>
+    </div>
+  </aside>
+  <!-- End Cart drawer -->
+  <!-- Toast -->
+  <div id="toast-container" class="pointer-events-none fixed bottom-6 left-1/2 z-[70] flex -translate-x-1/2 flex-col items-center gap-2"></div>
+  <!-- End Toast -->
   <!-- Back to top -->
   <button id="back-to-top" type="button" aria-label="Back to top" class="hidden fixed bottom-6 right-6 z-50 rounded-full bg-white p-2.5 text-slate-700 border border-slate-200 shadow-sm transition hover:text-slate-900">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
