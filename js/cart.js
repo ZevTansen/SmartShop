@@ -14,6 +14,7 @@ const deliveryEl = document.getElementById('delivery');
 const shippingEl = document.getElementById('shipping');
 const discountEl = document.getElementById('discount');
 const totalEl = document.getElementById('total');
+const deliveryHint = document.getElementById('delivery-hint');
 const cartWarning = document.getElementById('cart-warning');
 const checkoutBtn = document.getElementById('checkout-btn');
 
@@ -127,6 +128,16 @@ function renderTotals() {
   shippingEl.textContent = `৳${t.shipping.toLocaleString('en-US')}`;
   discountEl.textContent = `−৳${t.discount.toLocaleString('en-US')}`;
   totalEl.textContent = `৳${t.total.toLocaleString('en-US')}`;
+  if (!t.subtotal) {
+    deliveryHint.classList.add('hidden');
+  } else if (t.subtotal >= FREE_DELIVERY_MIN) {
+    deliveryHint.className = 'mt-2 text-xs font-medium text-emerald-600';
+    deliveryHint.textContent = 'Free delivery unlocked on this order.';
+  } else {
+    const need = FREE_DELIVERY_MIN - t.subtotal;
+    deliveryHint.className = 'mt-2 text-xs text-slate-500';
+    deliveryHint.textContent = `Add ৳${need.toLocaleString('en-US')} more to your subtotal to get free delivery.`;
+  }
 }
 // End Totals engine
 
@@ -241,7 +252,7 @@ function renderCart() {
   hideCartWarning();
   if (!cart.length) {
     const empty = document.createElement('li');
-    empty.className = 'py-10 text-center text-sm text-slate-400';
+    empty.className = 'py-10 text-center text-sm text-slate-500';
     empty.textContent = 'Your cart is empty.';
     cartItems.replaceChildren(empty);
   } else {

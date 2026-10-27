@@ -83,6 +83,9 @@ function updateSpy() {
     const active = link.getAttribute('href') === `#${currentId}`;
     link.classList.toggle('text-slate-900', active);
     link.classList.toggle('text-slate-500', !active);
+    link.classList.toggle('underline', active);
+    link.classList.toggle('underline-offset-8', active);
+    link.classList.toggle('decoration-2', active);
   });
 }
 

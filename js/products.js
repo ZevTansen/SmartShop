@@ -3,8 +3,22 @@ const productsGrid = document.getElementById('products-grid');
 const resultCount = document.getElementById('result-count');
 const searchInput = document.getElementById('search-input');
 const sortSelect = document.getElementById('sort-select');
+const showMoreWrap = document.getElementById('show-more-wrap');
+const showMoreBtn = document.getElementById('show-more-btn');
 
 let products = [];
+const ROWS = 2;
+let productLimit = 0;
+let expanded = false;
+
+function gridColumns() {
+  const cols = getComputedStyle(productsGrid).gridTemplateColumns.split(' ').filter(Boolean).length;
+  return cols || 1;
+}
+
+function baseCount() {
+  return gridColumns() * ROWS;
+}
 
 // Loading skeletons
 function skeletonCard() {
@@ -48,6 +62,7 @@ function showProductsError() {
   retry.addEventListener('click', loadProducts);
   wrap.append(msg, hint, retry);
   productsGrid.replaceChildren(wrap);
+  showMoreWrap.classList.add('hidden');
 }
 // End Error state
 
@@ -96,13 +111,17 @@ function buildStars(rate) {
 
 function createCard(product) {
   const card = document.createElement('article');
-  card.className = 'flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-slate-300';
+  card.className = 'relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg';
 
   const img = document.createElement('img');
   img.src = product.image;
   img.alt = product.title;
   img.loading = 'lazy';
   img.className = 'h-44 w-full bg-white object-contain p-4';
+
+  const chip = document.createElement('span');
+  chip.className = 'absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-medium capitalize text-slate-600 shadow-sm';
+  chip.textContent = product.category;
 
   const body = document.createElement('div');
   body.className = 'flex flex-1 flex-col p-4';
@@ -118,7 +137,7 @@ function createCard(product) {
   rate.className = 'text-xs font-medium text-slate-700';
   rate.textContent = (product.rating?.rate ?? 0).toFixed(1);
   const count = document.createElement('span');
-  count.className = 'text-xs text-slate-400';
+  count.className = 'text-xs text-slate-500';
   count.textContent = `(${product.rating?.count ?? 0})`;
   ratingRow.append(rate, count);
 
@@ -157,7 +176,7 @@ function createCard(product) {
 
   actions.append(addBtn, heart);
   body.append(title, ratingRow, price, actions);
-  card.append(img, body);
+  card.append(img, chip, body);
   return card;
 }
 // End Card builder
@@ -199,11 +218,16 @@ function renderProducts(list) {
   if (!list.length) {
     productsGrid.replaceChildren(buildEmptyState());
     if (resultCount) resultCount.textContent = '0 products';
+    showMoreWrap.classList.add('hidden');
     document.dispatchEvent(new CustomEvent('products:rendered'));
     return;
   }
-  productsGrid.replaceChildren(...list.map(createCard));
-  if (resultCount) resultCount.textContent = `${list.length} products`;
+  const visible = list.slice(0, productLimit);
+  productsGrid.replaceChildren(...visible.map(createCard));
+  const remaining = list.length - visible.length;
+  if (resultCount) resultCount.textContent = remaining ? `${visible.length} of ${list.length} products` : `${list.length} products`;
+  showMoreWrap.classList.toggle('hidden', !remaining);
+  if (remaining) showMoreBtn.textContent = `Show more (${remaining})`;
   document.dispatchEvent(new CustomEvent('products:rendered'));
 }
 
@@ -214,6 +238,8 @@ async function loadProducts() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     products = data.map(p => ({ ...p, priceBDT: Math.round(p.price * USD_TO_BDT) }));
+    productLimit = baseCount();
+    expanded = false;
     renderProducts(products);
   } catch {
     showProductsError();
@@ -224,14 +250,37 @@ loadProducts();
 
 // Live search
 searchInput.addEventListener('input', () => {
-  if (products.length) renderProducts(getVisibleProducts());
+  if (!products.length) return;
+  productLimit = baseCount();
+  expanded = false;
+  renderProducts(getVisibleProducts());
 });
 // End Live search
 
 // Sort control
 sortSelect.addEventListener('change', () => {
-  if (products.length) renderProducts(getVisibleProducts());
+  if (!products.length) return;
+  productLimit = baseCount();
+  expanded = false;
+  renderProducts(getVisibleProducts());
 });
 // End Sort control
+
+// Show more
+showMoreBtn.addEventListener('click', () => {
+  expanded = true;
+  productLimit += baseCount();
+  renderProducts(getVisibleProducts());
+});
+
+window.addEventListener('resize', () => {
+  if (expanded || !products.length) return;
+  const base = baseCount();
+  if (base !== productLimit) {
+    productLimit = base;
+    renderProducts(getVisibleProducts());
+  }
+});
+// End Show more
 // End Render and load
 // End Products fetch and render

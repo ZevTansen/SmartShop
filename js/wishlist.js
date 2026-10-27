@@ -137,7 +137,7 @@ function renderWishlist() {
   const known = wishlist.filter(id => getProduct(id));
   if (!known.length) {
     const empty = document.createElement('li');
-    empty.className = 'py-10 text-center text-sm text-slate-400';
+    empty.className = 'py-10 text-center text-sm text-slate-500';
     empty.textContent = 'Your wishlist is empty.';
     wishlistItems.replaceChildren(empty);
   } else {

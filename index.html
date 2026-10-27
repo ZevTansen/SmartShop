@@ -53,10 +53,10 @@
     </nav>
     <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-white md:hidden">
       <ul class="flex h-full flex-col items-center justify-center space-y-2 text-center">
-        <li><a href="#home" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:text-slate-500">Home</a></li>
-        <li><a href="#products" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:text-slate-500">Products</a></li>
-        <li><a href="#reviews" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:text-slate-500">Reviews</a></li>
-        <li><a href="#contact" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:text-slate-500">Contact</a></li>
+        <li><a href="#home" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:underline hover:underline-offset-8 hover:decoration-2">Home</a></li>
+        <li><a href="#products" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:underline hover:underline-offset-8 hover:decoration-2">Products</a></li>
+        <li><a href="#reviews" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:underline hover:underline-offset-8 hover:decoration-2">Reviews</a></li>
+        <li><a href="#contact" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:underline hover:underline-offset-8 hover:decoration-2">Contact</a></li>
       </ul>
     </div>
   </header>
@@ -119,8 +119,11 @@
       </div>
       <!-- End Toolbar -->
       <!-- Grid -->
-      <div id="products-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 min-h-32 rounded-xl border border-dashed border-slate-200"></div>
+      <div id="products-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 min-h-32"></div>
       <!-- End Grid -->
+      <div id="show-more-wrap" class="mt-8 hidden text-center">
+        <button id="show-more-btn" type="button" class="rounded-lg border border-slate-300 bg-white px-6 py-2.5 text-sm font-medium text-slate-700 transition hover:border-slate-900 hover:text-slate-900">Show more</button>
+      </div>
     </section>
     <!-- End Products -->
     <!-- Reviews -->
@@ -129,7 +132,7 @@
       <p class="mt-1 text-sm text-slate-500">What our customers say.</p>
       <div class="mt-6 relative">
         <!-- Carousel -->
-        <div id="reviews-viewport" class="overflow-hidden rounded-xl border border-dashed border-slate-200">
+        <div id="reviews-viewport" class="overflow-hidden rounded-xl border border-slate-200 bg-white">
           <div id="reviews-track" class="min-h-40"></div>
         </div>
         <!-- End Carousel -->
@@ -156,49 +159,48 @@
       <!-- Team grid -->
       <div id="team-grid" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
         <!-- Team member -->
-        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
           <img src="assets/images/raahim.png" alt="Md Raahim Anowar" class="aspect-square w-full object-cover" loading="lazy" />
           <figcaption class="p-4">
             <p class="text-sm font-semibold text-slate-900">Md Raahim Anowar</p>
             <p class="text-xs text-slate-500">Team Lead</p>
-            <p class="mt-1 text-xs text-slate-400">C243009</p>
+            <p class="mt-1 text-xs font-medium text-slate-500">C243009</p>
           </figcaption>
         </figure>
         <!-- End Team member -->
         <!-- Team member -->
-        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
           <img src="assets/images/tansen.png" alt="Md Tansen Uddin Tansu" class="aspect-square w-full object-cover" loading="lazy" />
           <figcaption class="p-4">
             <p class="text-sm font-semibold text-slate-900">Md Tansen Uddin Tansu</p>
             <p class="text-xs text-slate-500">Frontend Developer</p>
-            <p class="mt-1 text-xs text-slate-400">C243012</p>
+            <p class="mt-1 text-xs font-medium text-slate-500">C243012</p>
           </figcaption>
         </figure>
         <!-- End Team member -->
         <!-- Team member -->
-        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
           <img src="assets/images/sayed.png" alt="MA Sayed" class="aspect-square w-full object-cover" loading="lazy" />
           <figcaption class="p-4">
             <p class="text-sm font-semibold text-slate-900">MA Sayed</p>
             <p class="text-xs text-slate-500">UI Components Developer</p>
-            <p class="mt-1 text-xs text-slate-400">C243049</p>
+            <p class="mt-1 text-xs font-medium text-slate-500">C243049</p>
           </figcaption>
         </figure>
         <!-- End Team member -->
       </div>
-      <!-- End Team grid -->
       <!-- End Team grid -->
     </section>
     <!-- End About -->
     <!-- FAQ -->
     <section id="faq" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
       <h2 class="text-2xl font-semibold tracking-tight text-slate-900">FAQ</h2>
-      <div class="mt-6 max-w-3xl divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white px-6">
+      <div class="mt-6 max-w-3xl divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white px-6 shadow-sm">
         <!-- FAQ item -->
         <div>
           <button type="button" class="flex w-full items-center justify-between py-4 text-left text-sm font-medium text-slate-900">
             How long does delivery take?
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-400 transition-transform duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-500 transition-transform duration-200">
               <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
@@ -209,7 +211,7 @@
         <div>
           <button type="button" class="flex w-full items-center justify-between py-4 text-left text-sm font-medium text-slate-900">
             What are the delivery charges?
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-400 transition-transform duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-500 transition-transform duration-200">
               <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
@@ -220,7 +222,7 @@
         <div>
           <button type="button" class="flex w-full items-center justify-between py-4 text-left text-sm font-medium text-slate-900">
             Do you offer discount coupons?
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-400 transition-transform duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-slate-500 transition-transform duration-200">
               <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
@@ -273,7 +275,7 @@
           </ul>
         </div>
       </div>
-      <p class="mt-8 border-t border-slate-100 pt-6 text-sm text-slate-400">© 2026 SmartShop. All rights reserved.</p>
+      <p class="mt-8 border-t border-slate-200 pt-6 text-sm text-slate-500">© 2026 SmartShop. All rights reserved.</p>
     </div>
   </footer>
   <!-- End Footer -->
@@ -316,6 +318,7 @@
         </div>
       </dl>
       <!-- End Money rows -->
+      <p id="delivery-hint" class="hidden mt-2 text-xs"></p>
       <!-- Coupon -->
       <div class="mt-4 flex gap-2">
         <input id="coupon-input" type="text" placeholder="Coupon code" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm uppercase tracking-wide placeholder:text-slate-400 placeholder:normal-case focus:border-slate-900 focus:outline-none" />

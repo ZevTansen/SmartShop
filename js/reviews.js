@@ -28,7 +28,7 @@ function reviewCard(review) {
   separator.className = 'text-xs text-slate-300';
   separator.textContent = '·';
   const date = document.createElement('span');
-  date.className = 'text-xs text-slate-400';
+  date.className = 'text-xs text-slate-500';
   date.textContent = new Date(review.date).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'short',

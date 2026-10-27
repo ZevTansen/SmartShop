@@ -7,6 +7,7 @@ const FREE_DELIVERY_MIN = 2000;
 
 const COUPONS = {
   SMART10: 0.10,
+  HEHE35: 0.35,
 };
 
 const START_BALANCE = 1000;
