@@ -122,3 +122,24 @@ contactForm.addEventListener('submit', (e) => {
   input.addEventListener('input', () => clearFieldError(input));
 });
 // End Contact form
+
+// FAQ accordion
+const faqButtons = document.querySelectorAll('#faq button');
+
+function closeFaqItem(button) {
+  button.nextElementSibling.classList.add('hidden');
+  button.querySelector('svg').classList.remove('rotate-180');
+}
+
+faqButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const answer = button.nextElementSibling;
+    const wasOpen = !answer.classList.contains('hidden');
+    faqButtons.forEach(closeFaqItem);
+    if (!wasOpen) {
+      answer.classList.remove('hidden');
+      button.querySelector('svg').classList.add('rotate-180');
+    }
+  });
+});
+// End FAQ accordion
