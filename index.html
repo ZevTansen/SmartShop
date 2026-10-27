@@ -11,6 +11,7 @@
   <script src="js/reviews.js" defer></script>
   <script src="js/cart.js" defer></script>
   <script src="js/balance.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
 </head>
 <body class="min-h-screen bg-slate-50 pt-16">
   <!-- Navbar -->
@@ -28,6 +29,12 @@
       </ul>
       <div class="flex items-center gap-1">
         <button id="balance" type="button" aria-label="Open balance card" title="Balance" class="mr-2 rounded-full border border-slate-200 px-3 py-1 text-sm font-medium tabular-nums text-slate-900 transition hover:border-slate-900">৳1000</button>
+        <button id="wishlist-btn" type="button" aria-label="Open wishlist" class="relative rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          </svg>
+          <span id="wishlist-count" class="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-slate-900 px-1 text-[10px] font-semibold leading-none text-white">0</span>
+        </button>
         <button id="cart-btn" type="button" aria-label="Open cart" class="relative rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
@@ -307,6 +314,22 @@
     </div>
   </aside>
   <!-- End Balance drawer -->
+  <!-- Wishlist drawer -->
+  <div id="wishlist-backdrop" class="fixed inset-0 z-[55] bg-slate-900/40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="wishlist-drawer" aria-label="Wishlist" class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm translate-x-full flex-col bg-white border-l border-slate-200 shadow-xl transition-transform duration-300">
+    <div class="flex h-16 items-center justify-between border-b border-slate-200 px-5">
+      <h2 class="text-base font-semibold tracking-tight text-slate-900">Wishlist</h2>
+      <button id="wishlist-close" type="button" aria-label="Close wishlist" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-5 py-4">
+      <ul id="wishlist-items" class="divide-y divide-slate-100"></ul>
+    </div>
+  </aside>
+  <!-- End Wishlist drawer -->
   <!-- Toast -->
   <div id="toast-container" class="pointer-events-none fixed bottom-6 left-1/2 z-[70] flex -translate-x-1/2 flex-col items-center gap-2"></div>
   <!-- End Toast -->

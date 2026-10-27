@@ -53,7 +53,7 @@ function addToCart(id) {
     openCart();
     showCartWarning(projected);
     showToast('Insufficient balance.');
-    return;
+    return false;
   }
   const item = cart.find(i => i.id === id);
   if (item) item.qty += 1;
@@ -61,6 +61,7 @@ function addToCart(id) {
   renderCart();
   openCart();
   showToast('Added to cart');
+  return true;
 }
 
 function removeFromCart(id) {
