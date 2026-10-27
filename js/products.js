@@ -2,6 +2,7 @@
 const productsGrid = document.getElementById('products-grid');
 const resultCount = document.getElementById('result-count');
 const searchInput = document.getElementById('search-input');
+const sortSelect = document.getElementById('sort-select');
 
 let products = [];
 
@@ -31,7 +32,7 @@ function showSkeletons() {
 // End Loading skeletons
 
 // Error state
-function showError() {
+function showProductsError() {
   const wrap = document.createElement('div');
   wrap.className = 'sm:col-span-2 lg:col-span-4 flex flex-col items-center gap-2 rounded-xl border border-dashed border-slate-300 py-16 text-center';
   const msg = document.createElement('p');
@@ -185,10 +186,21 @@ function buildEmptyState() {
 
 function getVisibleProducts() {
   const query = searchInput.value.trim().toLowerCase();
-  if (!query) return products;
-  return products.filter(p => p.title.toLowerCase().includes(query));
+  const filtered = query ? products.filter(p => p.title.toLowerCase().includes(query)) : products;
+  return sortProducts(filtered);
 }
 // End Search
+
+// Sort
+function sortProducts(list) {
+  const value = sortSelect.value;
+  const sorted = [...list];
+  if (value === 'price-asc') sorted.sort((a, b) => a.priceBDT - b.priceBDT);
+  if (value === 'price-desc') sorted.sort((a, b) => b.priceBDT - a.priceBDT);
+  if (value === 'rating') sorted.sort((a, b) => (b.rating?.rate ?? 0) - (a.rating?.rate ?? 0));
+  return sorted;
+}
+// End Sort
 
 // Render and load
 function renderProducts(list) {
@@ -210,7 +222,7 @@ async function loadProducts() {
     products = data.map(p => ({ ...p, priceBDT: Math.round(p.price * USD_TO_BDT) }));
     renderProducts(products);
   } catch {
-    showError();
+    showProductsError();
   }
 }
 
@@ -221,5 +233,11 @@ searchInput.addEventListener('input', () => {
   if (products.length) renderProducts(getVisibleProducts());
 });
 // End Live search
+
+// Sort control
+sortSelect.addEventListener('change', () => {
+  if (products.length) renderProducts(getVisibleProducts());
+});
+// End Sort control
 // End Render and load
 // End Products fetch and render
