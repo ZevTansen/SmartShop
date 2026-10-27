@@ -1,6 +1,7 @@
 // Products fetch and render
 const productsGrid = document.getElementById('products-grid');
 const resultCount = document.getElementById('result-count');
+const searchInput = document.getElementById('search-input');
 
 let products = [];
 
@@ -168,8 +169,34 @@ function createCard(product) {
 }
 // End Card builder
 
+// Search
+function buildEmptyState() {
+  const wrap = document.createElement('div');
+  wrap.className = 'sm:col-span-2 lg:col-span-4 flex flex-col items-center rounded-xl border border-dashed border-slate-300 py-16 text-center';
+  const msg = document.createElement('p');
+  msg.className = 'text-sm font-medium text-slate-900';
+  msg.textContent = 'No products found';
+  const hint = document.createElement('p');
+  hint.className = 'text-sm text-slate-500';
+  hint.textContent = 'Try a different keyword.';
+  wrap.append(msg, hint);
+  return wrap;
+}
+
+function getVisibleProducts() {
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) return products;
+  return products.filter(p => p.title.toLowerCase().includes(query));
+}
+// End Search
+
 // Render and load
 function renderProducts(list) {
+  if (!list.length) {
+    productsGrid.replaceChildren(buildEmptyState());
+    if (resultCount) resultCount.textContent = '0 products';
+    return;
+  }
   productsGrid.replaceChildren(...list.map(createCard));
   if (resultCount) resultCount.textContent = `${list.length} products`;
 }
@@ -188,5 +215,11 @@ async function loadProducts() {
 }
 
 loadProducts();
+
+// Live search
+searchInput.addEventListener('input', () => {
+  if (products.length) renderProducts(getVisibleProducts());
+});
+// End Live search
 // End Render and load
 // End Products fetch and render
