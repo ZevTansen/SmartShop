@@ -14,9 +14,9 @@
   <script src="js/balance.js" defer></script>
   <script src="js/wishlist.js" defer></script>
 </head>
-<body class="min-h-screen bg-slate-50 pt-16">
+<body class="min-h-screen bg-slate-100 pt-16">
   <!-- Navbar -->
-  <header class="fixed inset-x-0 top-0 z-50 bg-white border-b border-slate-200">
+  <header class="fixed inset-x-0 top-0 z-50 bg-slate-50 border-b border-slate-200">
     <nav class="relative z-50 max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
       <a href="#home" class="flex items-center gap-2.5">
         <img src="assets/images/logo.png" alt="SmartShop logo" class="h-8 w-8" />
@@ -51,7 +51,7 @@
         <!-- End Hamburger button -->
       </div>
     </nav>
-    <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-white md:hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-slate-50 md:hidden">
       <ul class="flex h-full flex-col items-center justify-center space-y-2 text-center">
         <li><a href="#home" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:underline hover:underline-offset-8 hover:decoration-2">Home</a></li>
         <li><a href="#products" class="block px-8 py-3 text-2xl font-medium text-slate-900 transition hover:underline hover:underline-offset-8 hover:decoration-2">Products</a></li>
@@ -62,8 +62,8 @@
   </header>
   <!-- End Navbar -->
   <!-- Banner -->
-  <section id="home" class="scroll-mt-20">
-    <div id="banner" class="relative h-60 sm:h-80 lg:h-[480px] overflow-hidden">
+  <section id="home" class="scroll-mt-20 max-w-6xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
+    <div id="banner" class="relative h-60 sm:h-80 lg:h-[480px] overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
       <!-- Slides -->
       <div class="banner-slide absolute inset-0">
         <img src="assets/images/banner1.png" alt="Mega Sale" class="h-full w-full object-cover" />
@@ -132,7 +132,7 @@
       <p class="mt-1 text-sm text-slate-500">What our customers say.</p>
       <div class="mt-6 relative">
         <!-- Carousel -->
-        <div id="reviews-viewport" class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <div id="reviews-viewport" class="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
           <div id="reviews-track" class="min-h-40"></div>
         </div>
         <!-- End Carousel -->
@@ -159,7 +159,7 @@
       <!-- Team grid -->
       <div id="team-grid" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
         <!-- Team member -->
-        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-sm transition hover:shadow-md">
           <img src="assets/images/raahim.png" alt="Md Raahim Anowar" class="aspect-square w-full object-cover" loading="lazy" />
           <figcaption class="p-4">
             <p class="text-sm font-semibold text-slate-900">Md Raahim Anowar</p>
@@ -169,7 +169,7 @@
         </figure>
         <!-- End Team member -->
         <!-- Team member -->
-        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-sm transition hover:shadow-md">
           <img src="assets/images/tansen.png" alt="Md Tansen Uddin Tansu" class="aspect-square w-full object-cover" loading="lazy" />
           <figcaption class="p-4">
             <p class="text-sm font-semibold text-slate-900">Md Tansen Uddin Tansu</p>
@@ -179,7 +179,7 @@
         </figure>
         <!-- End Team member -->
         <!-- Team member -->
-        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-sm transition hover:shadow-md">
           <img src="assets/images/sayed.png" alt="MA Sayed" class="aspect-square w-full object-cover" loading="lazy" />
           <figcaption class="p-4">
             <p class="text-sm font-semibold text-slate-900">MA Sayed</p>
@@ -195,7 +195,7 @@
     <!-- FAQ -->
     <section id="faq" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
       <h2 class="text-2xl font-semibold tracking-tight text-slate-900">FAQ</h2>
-      <div class="mt-6 max-w-3xl divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white px-6 shadow-sm">
+      <div class="mt-6 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
         <!-- FAQ item -->
         <div>
           <button type="button" class="flex w-full items-center justify-between py-4 text-left text-sm font-medium text-slate-900">
@@ -236,14 +236,16 @@
     <section id="contact" class="scroll-mt-20 max-w-6xl mx-auto px-4 sm:px-6 pb-20">
       <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Contact</h2>
       <p class="mt-1 text-sm text-slate-500">We usually reply within a day.</p>
-      <form id="contact-form" class="mt-6 max-w-md space-y-4" novalidate>
-        <div>
-          <label for="contact-name" class="block text-sm font-medium text-slate-700">Name</label>
-          <input id="contact-name" type="text" class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none" />
-        </div>
-        <div>
-          <label for="contact-email" class="block text-sm font-medium text-slate-700">Email</label>
-          <input id="contact-email" type="email" class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none" />
+      <form id="contact-form" class="mt-6 space-y-4" novalidate>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="contact-name" class="block text-sm font-medium text-slate-700">Name</label>
+            <input id="contact-name" type="text" class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none" />
+          </div>
+          <div>
+            <label for="contact-email" class="block text-sm font-medium text-slate-700">Email</label>
+            <input id="contact-email" type="email" class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none" />
+          </div>
         </div>
         <div>
           <label for="contact-message" class="block text-sm font-medium text-slate-700">Message</label>
@@ -251,12 +253,12 @@
         </div>
         <button type="submit" class="rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800">Send message</button>
       </form>
-      <p id="contact-success" class="hidden mt-6 max-w-md text-sm font-medium text-emerald-600">Thank you! Your message has been sent.</p>
+      <p id="contact-success" class="hidden mt-6 text-sm font-medium text-emerald-600">Thank you! Your message has been sent.</p>
     </section>
     <!-- End Contact -->
   </main>
   <!-- Footer -->
-  <footer class="border-t border-slate-200 bg-white">
+  <footer class="border-t border-slate-200 bg-slate-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
         <div>
@@ -281,7 +283,7 @@
   <!-- End Footer -->
   <!-- Cart drawer -->
   <div id="cart-backdrop" class="fixed inset-0 z-[55] bg-slate-900/40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  <aside id="cart-drawer" aria-label="Shopping cart" class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm translate-x-full flex-col bg-white border-l border-slate-200 shadow-xl transition-transform duration-300">
+  <aside id="cart-drawer" aria-label="Shopping cart" class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm translate-x-full flex-col bg-slate-50 border-l border-slate-200 shadow-xl transition-transform duration-300">
     <div class="flex h-16 items-center justify-between border-b border-slate-200 px-5">
       <h2 class="text-base font-semibold tracking-tight text-slate-900">Your Cart</h2>
       <button id="cart-close" type="button" aria-label="Close cart" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
@@ -292,7 +294,7 @@
     </div>
     <div class="flex-1 overflow-y-auto px-5 py-4">
       <!-- Items -->
-      <ul id="cart-items" class="divide-y divide-slate-100"></ul>
+      <ul id="cart-items" class="divide-y divide-slate-200"></ul>
       <!-- End Items -->
       <!-- Money rows -->
       <dl class="mt-4 space-y-2 text-sm text-slate-600">
@@ -321,7 +323,7 @@
       <p id="delivery-hint" class="hidden mt-2 text-xs"></p>
       <!-- Coupon -->
       <div class="mt-4 flex gap-2">
-        <input id="coupon-input" type="text" placeholder="Coupon code" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm uppercase tracking-wide placeholder:text-slate-400 placeholder:normal-case focus:border-slate-900 focus:outline-none" />
+        <input id="coupon-input" type="text" placeholder="Coupon code" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm uppercase tracking-wide placeholder:text-slate-400 placeholder:normal-case focus:border-slate-900 focus:outline-none" />
         <button id="coupon-apply" type="button" class="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-900 hover:text-slate-900">Apply</button>
       </div>
       <!-- End Coupon -->
@@ -333,7 +335,7 @@
   <!-- End Cart drawer -->
   <!-- Balance drawer -->
   <div id="balance-backdrop" class="fixed inset-0 z-[55] bg-slate-900/40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  <aside id="balance-drawer" aria-label="Balance" class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm translate-x-full flex-col bg-white border-l border-slate-200 shadow-xl transition-transform duration-300">
+  <aside id="balance-drawer" aria-label="Balance" class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm translate-x-full flex-col bg-slate-50 border-l border-slate-200 shadow-xl transition-transform duration-300">
     <div class="flex h-16 items-center justify-between border-b border-slate-200 px-5">
       <h2 class="text-base font-semibold tracking-tight text-slate-900">Balance</h2>
       <button id="balance-close" type="button" aria-label="Close balance" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
@@ -352,7 +354,7 @@
   <!-- End Balance drawer -->
   <!-- Wishlist drawer -->
   <div id="wishlist-backdrop" class="fixed inset-0 z-[55] bg-slate-900/40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  <aside id="wishlist-drawer" aria-label="Wishlist" class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm translate-x-full flex-col bg-white border-l border-slate-200 shadow-xl transition-transform duration-300">
+  <aside id="wishlist-drawer" aria-label="Wishlist" class="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm translate-x-full flex-col bg-slate-50 border-l border-slate-200 shadow-xl transition-transform duration-300">
     <div class="flex h-16 items-center justify-between border-b border-slate-200 px-5">
       <h2 class="text-base font-semibold tracking-tight text-slate-900">Wishlist</h2>
       <button id="wishlist-close" type="button" aria-label="Close wishlist" class="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
@@ -362,7 +364,7 @@
       </button>
     </div>
     <div class="flex-1 overflow-y-auto px-5 py-4">
-      <ul id="wishlist-items" class="divide-y divide-slate-100"></ul>
+      <ul id="wishlist-items" class="divide-y divide-slate-200"></ul>
     </div>
   </aside>
   <!-- End Wishlist drawer -->

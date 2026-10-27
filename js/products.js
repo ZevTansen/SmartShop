@@ -23,7 +23,7 @@ function baseCount() {
 // Loading skeletons
 function skeletonCard() {
   const card = document.createElement('article');
-  card.className = 'animate-pulse rounded-xl border border-slate-200 bg-white';
+  card.className = 'animate-pulse rounded-xl border border-slate-200 bg-slate-50';
   const img = document.createElement('div');
   img.className = 'h-44 w-full bg-slate-100';
   const body = document.createElement('div');
@@ -111,7 +111,7 @@ function buildStars(rate) {
 
 function createCard(product) {
   const card = document.createElement('article');
-  card.className = 'relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg';
+  card.className = 'relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg';
 
   const img = document.createElement('img');
   img.src = product.image;
