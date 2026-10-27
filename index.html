@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmartShop</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="js/config.js"></script>
   <script src="js/app.js" defer></script>
@@ -19,7 +20,7 @@
     <nav class="max-w-6xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6">
       <a href="#home" class="flex items-center gap-2.5">
         <img src="assets/images/logo.png" alt="SmartShop logo" class="h-8 w-8" />
-        <span class="text-lg font-semibold tracking-tight text-slate-900">SmartShop</span>
+        <h1 class="text-lg font-semibold tracking-tight text-slate-900">SmartShop</h1>
       </a>
       <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-500">
         <li><a href="#home" class="transition hover:text-slate-900">Home</a></li>
@@ -151,9 +152,41 @@
     <!-- About -->
     <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
       <h2 class="text-2xl font-semibold tracking-tight text-slate-900">About Us</h2>
-      <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-600">SmartShop is a fully client-side storefront demo: browse products, manage a cart, apply coupons and spend from a fixed balance, all in real time with zero page reloads.</p>
+      <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-600">SmartShop is a client-side storefront: products load live from a public API, the cart, coupons and balance update in real time, and your balance persists across reloads. We kept the design minimal so the focus stays on the products, building it entirely with HTML, Tailwind CSS and plain JavaScript. No frameworks, no page reloads, and it works smoothly on both mobile and desktop.</p>
       <!-- Team grid -->
-      <div id="team-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 min-h-24 rounded-xl border border-dashed border-slate-200"></div>
+      <div id="team-grid" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <!-- Team member -->
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+          <img src="assets/images/raahim.png" alt="Md Raahim Anowar" class="aspect-square w-full object-cover" loading="lazy" />
+          <figcaption class="p-4">
+            <p class="text-sm font-semibold text-slate-900">Md Raahim Anowar</p>
+            <p class="text-xs text-slate-500">Team Lead</p>
+            <p class="mt-1 text-xs text-slate-400">C243009</p>
+          </figcaption>
+        </figure>
+        <!-- End Team member -->
+        <!-- Team member -->
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+          <img src="assets/images/tansen.png" alt="Md Tansen Uddin Tansu" class="aspect-square w-full object-cover" loading="lazy" />
+          <figcaption class="p-4">
+            <p class="text-sm font-semibold text-slate-900">Md Tansen Uddin Tansu</p>
+            <p class="text-xs text-slate-500">Frontend Developer</p>
+            <p class="mt-1 text-xs text-slate-400">C243012</p>
+          </figcaption>
+        </figure>
+        <!-- End Team member -->
+        <!-- Team member -->
+        <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+          <img src="assets/images/sayed.png" alt="MA Sayed" class="aspect-square w-full object-cover" loading="lazy" />
+          <figcaption class="p-4">
+            <p class="text-sm font-semibold text-slate-900">MA Sayed</p>
+            <p class="text-xs text-slate-500">UI Components Developer</p>
+            <p class="mt-1 text-xs text-slate-400">C243049</p>
+          </figcaption>
+        </figure>
+        <!-- End Team member -->
+      </div>
+      <!-- End Team grid -->
       <!-- End Team grid -->
     </section>
     <!-- End About -->
